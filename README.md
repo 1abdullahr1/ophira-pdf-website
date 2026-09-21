@@ -8,40 +8,15 @@ Built with **[Astro](https://astro.build)** and deployed automatically via **Git
 
 ## 🎨 Color Palettes & Themes
 
-The website features an interactive theme switcher powered by the exact design tokens of Ophira PDF:
+The website is designed exclusively with the signature design tokens of Ophira PDF:
 
 ```css
-:root,
-[data-theme="indigo"] {
-  --brand-start: #3A34C4;
-  --brand-end:   #8A4FFF;
-  --surface:     #FBFAFF;
-  --shade:       #DAD6F0;
-  --accent:      #FFC93C;
-}
-
-[data-theme="emerald"] {
-  --brand-start: #0D3B36;
-  --brand-end:   #0D3B36;
-  --surface:     #F5F2E9;
-  --shade:       #DDD8CA;
-  --accent:      #FF7B54;
-}
-
-[data-theme="navy"] {
-  --brand-start: #1B2532;
-  --brand-end:   #1B2532;
-  --surface:     #F6F4EF;
-  --shade:       #E0DED8;
-  --accent:      #FCBB1B;
-}
-
-[data-theme="light"] {
-  --brand-start: #CFE0F3;
-  --brand-end:   #CFE0F3;
-  --surface:     #FFFFFF;
-  --shade:       #D3DCE8;
-  --accent:      #FCBB1B;
+:root {
+  --brand-start: #3A34C4;  /* deep indigo (gradient start) */
+  --brand-end:   #8A4FFF;  /* bright violet (gradient end) */
+  --surface:     #FBFAFF;  /* near-white lavender (backgrounds, cards) */
+  --shade:       #DAD6F0;  /* soft lavender-grey (borders, dividers) */
+  --accent:      #FFC93C;  /* sunny yellow (buttons, highlights) */
 }
 ```
 
@@ -50,7 +25,7 @@ The website features an interactive theme switcher powered by the exact design t
 ## 🚀 Key Website Features
 
 - **⚡ Blazing-Fast Astro Static Engine**: Zero client-side bloat, maximum lighthouse performance, and instant navigation.
-- **🎨 Live Interactive Theme Switcher**: Instant switching between Indigo, Emerald, Navy, and Light with persistent `localStorage` memory and zero flash of unstyled content.
+- **🎨 Signature Color Palette**: Deep indigo, bright violet, lavender paper surface, and sunny yellow highlights matching the app icon.
 - **💻 Desktop Mockup Simulator**: Interactive desktop app simulator allowing visitors to test the real in-viewer toolbar, auto-save toggle, and live status indicator.
 - **💾 One-Click Downloads**: Direct download links for **Windows Setup Installer** (`Ophira.PDF.1.2.1.Setup.exe`) and **Standalone Portable** (`Ophira.PDF.1.2.1.Portable.exe`).
 - **📊 In-Depth Feature Matrix**: Clear feature comparisons against sluggish legacy PDF viewers.

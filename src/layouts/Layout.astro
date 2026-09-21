@@ -6,14 +6,14 @@ interface Props {
 
 const {
   title = "Ophira PDF — Modern, Fast & Distraction-Free Desktop PDF Reader",
-  description = "Lightning-fast desktop PDF viewer and editor with instant auto-save, custom themes (Indigo, Emerald, Navy, Light), recent file history, and 100% offline privacy."
+  description = "Lightning-fast desktop PDF viewer and editor with instant auto-save, recent file history, distraction-free design, and 100% offline privacy."
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <!doctype html>
-<html lang="en" data-theme="indigo">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,16 +31,6 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}/favicon.svg`} />
     <link rel="alternate icon" type="image/x-icon" href={`${baseUrl}/favicon.ico`} />
     <link rel="apple-touch-icon" href={`${baseUrl}/icon.png`} />
-
-    <!-- Prevent Theme Flash -->
-    <script is:inline>
-      (function () {
-        try {
-          const theme = localStorage.getItem('ophira-theme') || 'indigo';
-          document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-      })();
-    </script>
   </head>
   <body>
     <div class="ambient-glow" aria-hidden="true"></div>

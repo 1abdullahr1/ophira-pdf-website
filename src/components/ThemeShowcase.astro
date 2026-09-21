@@ -1,188 +1,211 @@
 ---
-const themes = [
+const tokens = [
   {
-    id: "indigo",
-    name: "Indigo",
-    subtitle: "Modern, dynamic purple gradient with sunny yellow accent",
-    swatches: [
-      { name: "Brand Start", hex: "#3A34C4", bg: "#3A34C4", text: "#FFFFFF" },
-      { name: "Brand End", hex: "#8A4FFF", bg: "#8A4FFF", text: "#FFFFFF" },
-      { name: "Surface", hex: "#FBFAFF", bg: "#FBFAFF", text: "#141324", border: "#DAD6F0" },
-      { name: "Shade", hex: "#DAD6F0", bg: "#DAD6F0", text: "#141324" },
-      { name: "Accent", hex: "#FFC93C", bg: "#FFC93C", text: "#141324" }
-    ]
+    token: "--brand-start",
+    name: "Deep Indigo",
+    hex: "#3A34C4",
+    role: "Primary gradient anchor, main brand identity, high-contrast actions",
+    bg: "#3A34C4",
+    textColor: "#FFFFFF"
   },
   {
-    id: "emerald",
-    name: "Emerald",
-    subtitle: "Warm parchment, organic forest pine & coral accent",
-    swatches: [
-      { name: "Brand Start", hex: "#0D3B36", bg: "#0D3B36", text: "#FFFFFF" },
-      { name: "Brand End", hex: "#0D3B36", bg: "#0D3B36", text: "#FFFFFF" },
-      { name: "Surface", hex: "#F5F2E9", bg: "#F5F2E9", text: "#0D3B36", border: "#DDD8CA" },
-      { name: "Shade", hex: "#DDD8CA", bg: "#DDD8CA", text: "#0D3B36" },
-      { name: "Accent", hex: "#FF7B54", bg: "#FF7B54", text: "#FFFFFF" }
-    ]
+    token: "--brand-end",
+    name: "Bright Violet",
+    hex: "#8A4FFF",
+    role: "Gradient highlight, visual glow, modern vibrant depth",
+    bg: "#8A4FFF",
+    textColor: "#FFFFFF"
   },
   {
-    id: "navy",
-    name: "Navy",
-    subtitle: "Deep architectural midnight slate with warm golden yellow",
-    swatches: [
-      { name: "Brand Start", hex: "#1B2532", bg: "#1B2532", text: "#FFFFFF" },
-      { name: "Brand End", hex: "#1B2532", bg: "#1B2532", text: "#FFFFFF" },
-      { name: "Surface", hex: "#F6F4EF", bg: "#F6F4EF", text: "#1B2532", border: "#E0DED8" },
-      { name: "Shade", hex: "#E0DED8", bg: "#E0DED8", text: "#1B2532" },
-      { name: "Accent", hex: "#FCBB1B", bg: "#FCBB1B", text: "#1B2532" }
-    ]
+    token: "--surface",
+    name: "Near-White Lavender",
+    hex: "#FBFAFF",
+    role: "Paper surface, background cards, clean distraction-free workspace",
+    bg: "#FBFAFF",
+    border: "#DAD6F0",
+    textColor: "#141324"
   },
   {
-    id: "light",
-    name: "Light",
-    subtitle: "Crisp arctic sky blue with pure white paper and golden touch",
-    swatches: [
-      { name: "Brand Start", hex: "#CFE0F3", bg: "#CFE0F3", text: "#111A24" },
-      { name: "Brand End", hex: "#CFE0F3", bg: "#CFE0F3", text: "#111A24" },
-      { name: "Surface", hex: "#FFFFFF", bg: "#FFFFFF", text: "#111A24", border: "#D3DCE8" },
-      { name: "Shade", hex: "#D3DCE8", bg: "#D3DCE8", text: "#111A24" },
-      { name: "Accent", hex: "#FCBB1B", bg: "#FCBB1B", text: "#111A24" }
-    ]
+    token: "--shade",
+    name: "Soft Lavender-Grey",
+    hex: "#DAD6F0",
+    role: "Document borders, structural dividers, subtle crease shadows",
+    bg: "#DAD6F0",
+    textColor: "#141324"
+  },
+  {
+    token: "--accent",
+    name: "Sunny Yellow",
+    hex: "#FFC93C",
+    role: "Folded corner document accent, primary action buttons, key highlights",
+    bg: "#FFC93C",
+    textColor: "#1C1900"
   }
 ];
 ---
 
-<section class="theme-showcase-section" id="themes">
+<section class="palette-section" id="palette">
   <div class="container">
     <div class="section-header">
-      <span class="badge" style="margin-bottom: 0.75rem;">Color Palette System</span>
-      <h2>Designed for Visual Comfort</h2>
-      <p>Click any theme card below to instantly apply and preview its color palette across the entire site.</p>
+      <span class="badge" style="margin-bottom: 0.75rem;">Design System</span>
+      <h2>Crafted with Precision</h2>
+      <p>A unified color palette engineered for maximum readability, focus, and modern elegance.</p>
     </div>
 
-    <div class="themes-grid">
-      {themes.map((theme) => (
-        <div class="card theme-card" data-apply-theme={theme.id}>
-          <div class="theme-card-header">
-            <div>
-              <h3 class="theme-card-title">{theme.name}</h3>
-              <p class="theme-card-sub">{theme.subtitle}</p>
-            </div>
-            <button type="button" class="btn btn-secondary btn-apply-theme" data-theme-id={theme.id}>
-              Apply
-            </button>
+    <div class="palette-grid">
+      {tokens.map((token) => (
+        <div class="card token-card">
+          <div
+            class="swatch-box"
+            style={`background-color: ${token.bg}; color: ${token.textColor}; border: 1px solid ${token.border || 'transparent'};`}
+          >
+            <span class="swatch-hex">{token.hex}</span>
           </div>
 
-          <div class="swatches-container">
-            {theme.swatches.map((swatch) => (
-              <div
-                class="swatch-pill"
-                style={`background-color: ${swatch.bg}; color: ${swatch.text}; border: 1px solid ${swatch.border || 'transparent'};`}
-              >
-                <span class="swatch-name">{swatch.name}</span>
-                <span class="swatch-hex">{swatch.hex}</span>
-              </div>
-            ))}
+          <div class="token-info">
+            <div class="token-top">
+              <span class="token-name">{token.name}</span>
+              <code class="token-var">{token.token}</code>
+            </div>
+            <p class="token-role">{token.role}</p>
           </div>
         </div>
       ))}
     </div>
+
+    <!-- Live Preview Strip -->
+    <div class="palette-preview-banner card">
+      <div class="preview-brand">
+        <div class="gradient-preview"></div>
+        <div>
+          <h4>Signature Brand Gradient</h4>
+          <p><code>linear-gradient(135deg, #3A34C4 0%, #8A4FFF 100%)</code> with sunny yellow <code>#FFC93C</code> folded accent</p>
+        </div>
+      </div>
+      <a href="#downloads" class="btn btn-accent">
+        <span>Get Ophira PDF</span>
+      </a>
+    </div>
   </div>
 </section>
 
-<script>
-  // Dynamic theme switching from showcase cards
-  const applyButtons = document.querySelectorAll('[data-apply-theme], [data-theme-id]');
-
-  applyButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const targetTheme = btn.getAttribute('data-apply-theme') || btn.getAttribute('data-theme-id');
-      if (targetTheme) {
-        document.documentElement.setAttribute('data-theme', targetTheme);
-        try {
-          localStorage.setItem('ophira-theme', targetTheme);
-        } catch (err) {}
-
-        // Update active class in header
-        document.querySelectorAll('[data-set-theme]').forEach(headerBtn => {
-          if (headerBtn.getAttribute('data-set-theme') === targetTheme) {
-            headerBtn.classList.add('active');
-          } else {
-            headerBtn.classList.remove('active');
-          }
-        });
-      }
-    });
-  });
-</script>
-
 <style>
-  .theme-showcase-section {
+  .palette-section {
     padding: 5rem 0;
     position: relative;
   }
 
-  .themes-grid {
+  .palette-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
-  .theme-card {
-    cursor: pointer;
+  .token-card {
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    gap: 1.25rem;
   }
 
-  .theme-card:hover {
-    border-color: var(--brand-start);
-  }
-
-  .theme-card-header {
+  .swatch-box {
+    height: 110px;
+    border-radius: 12px;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .theme-card-title {
-    font-size: 1.35rem;
-    margin-bottom: 0.35rem;
-  }
-
-  .theme-card-sub {
-    font-size: 0.88rem;
-    line-height: 1.4;
-    color: var(--text-muted);
-  }
-
-  .btn-apply-theme {
-    padding: 0.35rem 0.85rem;
-    font-size: 0.8rem;
-    border-radius: 9999px;
-  }
-
-  .swatches-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-  }
-
-  .swatch-pill {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0.85rem;
-    border-radius: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
+    align-items: flex-end;
+    padding: 0.85rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
   .swatch-hex {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+
+  .token-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .token-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .token-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-main);
+  }
+
+  .token-var {
     font-size: 0.78rem;
-    opacity: 0.9;
+    color: var(--brand-start);
+    background: var(--surface);
+    border: 1px solid var(--shade);
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .token-role {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+  }
+
+  .palette-preview-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: var(--surface);
+    border-color: var(--shade);
+  }
+
+  .preview-brand {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .gradient-preview {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: var(--brand-gradient);
+    box-shadow: 0 4px 14px var(--brand-glow);
+    flex-shrink: 0;
+  }
+
+  .preview-brand h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .preview-brand p {
+    font-size: 0.85rem;
+  }
+
+  .preview-brand code {
+    background: var(--bg-card);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--shade);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    .palette-preview-banner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 </style>
