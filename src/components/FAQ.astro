@@ -1,0 +1,104 @@
+---
+const faqs = [
+  {
+    question: "Does Ophira PDF save changes directly into my original PDF file?",
+    answer: "Yes! When Auto-Save is toggled ON (or whenever you click 'Save to File' or press Ctrl+S), your annotations, highlights, form inputs, and ink signatures are written directly back to your local PDF file without having to rename or duplicate it."
+  },
+  {
+    question: "What is the difference between the Setup Installer and Portable edition?",
+    answer: "The Windows Setup Installer sets up desktop shortcuts, start menu entries, and file associations with a clean uninstaller. The Portable edition is a single standalone .exe that requires no installation and can be run straight from a USB thumb drive or your Downloads folder."
+  },
+  {
+    question: "Are my documents secure and private?",
+    answer: "100%. Ophira PDF operates entirely on your local machine with zero telemetry, zero analytics, and zero cloud services. Your sensitive legal contracts, tax documents, and personal files never touch the internet."
+  },
+  {
+    question: "Why does the app close instantly without asking to save?",
+    answer: "Traditional PDF readers constantly annoy users with 'Do you want to save before closing?' modal popups. Ophira PDF's continuous auto-save engine safely commits all changes to disk on-the-fly, allowing the app and tabs to close instantly without interruption."
+  },
+  {
+    question: "Can I customize the reading color theme?",
+    answer: "Yes! Ophira PDF includes 4 thoughtfully crafted eye-comfort themes: Indigo, Emerald, Navy, and Light. You can switch between them anytime from the toolbar."
+  }
+];
+---
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge" style="margin-bottom: 0.75rem;">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about Ophira PDF desktop.</p>
+    </div>
+
+    <div class="faq-accordion">
+      {faqs.map((faq, idx) => (
+        <details class="faq-item card" open={idx === 0}>
+          <summary class="faq-question">
+            <span>{faq.question}</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 5rem 0;
+  }
+
+  .faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    padding: 1.25rem 1.75rem;
+    cursor: pointer;
+  }
+
+  .faq-question {
+    font-weight: 700;
+    font-size: 1.08rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    list-style: none;
+    user-select: none;
+    color: var(--text-main);
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-chevron {
+    transition: transform 0.25s ease;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  details[open] .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--brand-start);
+  }
+
+  .faq-answer {
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+</style>

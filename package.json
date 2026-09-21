@@ -1,0 +1,16 @@
+{
+  "name": "ophira-pdf-website",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Official website and landing page for Ophira PDF — Modern, blazing-fast desktop PDF reader & editor.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.18"
+  }
+}

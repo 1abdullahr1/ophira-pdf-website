@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   OPHIRA PDF DESIGN SYSTEM & THEMES
+   ========================================================================== */
+
+:root,
+[data-theme="indigo"] {
+  --brand-start: #3A34C4;
+  --brand-end:   #8A4FFF;
+  --surface:     #FBFAFF;
+  --shade:       #DAD6F0;
+  --accent:      #FFC93C;
+
+  --theme-name: "Indigo";
+  --bg-page: #F7F6FC;
+  --bg-card: #FFFFFF;
+  --bg-header: rgba(251, 250, 255, 0.85);
+  --text-main: #141324;
+  --text-muted: #585575;
+  --text-inverse: #FFFFFF;
+  --border-subtle: #E6E2F7;
+  --brand-gradient: linear-gradient(135deg, #3A34C4 0%, #8A4FFF 100%);
+  --brand-glow: rgba(138, 79, 255, 0.25);
+  --accent-text: #1C1900;
+  --code-bg: #EDEAF9;
+}
+
+[data-theme="emerald"] {
+  --brand-start: #0D3B36;
+  --brand-end:   #0D3B36;
+  --surface:     #F5F2E9;
+  --shade:       #DDD8CA;
+  --accent:      #FF7B54;
+
+  --theme-name: "Emerald";
+  --bg-page: #FAF8F2;
+  --bg-card: #FFFFFF;
+  --bg-header: rgba(245, 242, 233, 0.88);
+  --text-main: #0B1E1C;
+  --text-muted: #4B5A56;
+  --text-inverse: #FFFFFF;
+  --border-subtle: #E5E0D2;
+  --brand-gradient: linear-gradient(135deg, #0D3B36 0%, #17544E 100%);
+  --brand-glow: rgba(13, 59, 54, 0.22);
+  --accent-text: #FFFFFF;
+  --code-bg: #EAE6D9;
+}
+
+[data-theme="navy"] {
+  --brand-start: #1B2532;
+  --brand-end:   #1B2532;
+  --surface:     #F6F4EF;
+  --shade:       #E0DED8;
+  --accent:      #FCBB1B;
+
+  --theme-name: "Navy";
+  --bg-page: #FAF9F6;
+  --bg-card: #FFFFFF;
+  --bg-header: rgba(246, 244, 239, 0.88);
+  --text-main: #131B24;
+  --text-muted: #495462;
+  --text-inverse: #FFFFFF;
+  --border-subtle: #E2E0D8;
+  --brand-gradient: linear-gradient(135deg, #1B2532 0%, #2A384C 100%);
+  --brand-glow: rgba(27, 37, 50, 0.22);
+  --accent-text: #1B2532;
+  --code-bg: #EAE8DF;
+}
+
+[data-theme="light"] {
+  --brand-start: #CFE0F3;
+  --brand-end:   #CFE0F3;
+  --surface:     #FFFFFF;
+  --shade:       #D3DCE8;
+  --accent:      #FCBB1B;
+
+  --theme-name: "Light";
+  --bg-page: #F5F8FC;
+  --bg-card: #FFFFFF;
+  --bg-header: rgba(255, 255, 255, 0.9);
+  --text-main: #111A24;
+  --text-muted: #4B5A6B;
+  --text-inverse: #111A24;
+  --border-subtle: #E1E8F2;
+  --brand-gradient: linear-gradient(135deg, #2E6CB5 0%, #5B9AE8 100%);
+  --brand-glow: rgba(46, 108, 181, 0.2);
+  --accent-text: #111A24;
+  --code-bg: #EAF0F8;
+}
+
+/* ==========================================================================
+   CSS RESET & BASE
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  scroll-behavior: smooth;
+  color-scheme: light;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--brand-gradient);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px var(--brand-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--brand-glow);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface);
+  border-color: var(--shade);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: var(--accent-text);
+  box-shadow: 0 4px 14px rgba(255, 201, 60, 0.35);
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.btn-lg {
+  padding: 0.95rem 2rem;
+  font-size: 1.05rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background-color: var(--surface);
+  border: 1px solid var(--shade);
+  color: var(--text-main);
+}
+
+.badge-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Subtle Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+  border-color: var(--shade);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px var(--brand-glow);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-header h2 {
+  font-size: 2.25rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+}
+
+/* Glow Background effect */
+.ambient-glow {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(circle, var(--brand-glow) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}

@@ -1,0 +1,181 @@
+---
+const rows = [
+  {
+    feature: "Startup Launch Time",
+    ophira: "⚡ Instant (< 0.5s)",
+    others: "🐢 Sluggish (5 - 12s)",
+    ophiraHighlight: true
+  },
+  {
+    feature: "Auto-Save to Disk",
+    ophira: "Continuous background sync with live status indicator",
+    others: "Cloud lock-in or only on manual prompt",
+    ophiraHighlight: true
+  },
+  {
+    feature: "Exit / Close Experience",
+    ophira: "Instant close with zero nagging prompts",
+    others: "Interruptive 'Save before closing?' modal dialogs",
+    ophiraHighlight: true
+  },
+  {
+    feature: "Integrated Eye Themes",
+    ophira: "Indigo, Emerald, Navy & Light palettes",
+    others: "Fixed stark white or basic dark toggle",
+    ophiraHighlight: true
+  },
+  {
+    feature: "Standalone Portable Mode",
+    ophira: "Single .exe, zero installation required",
+    others: "Mandatory system installer with deep background daemons",
+    ophiraHighlight: true
+  },
+  {
+    feature: "Privacy & Telemetry",
+    ophira: "100% Offline. Zero tracking, zero telemetry",
+    others: "Extensive background usage metrics and cloud sync",
+    ophiraHighlight: true
+  },
+  {
+    feature: "Pricing Model",
+    ophira: "100% Free & Open Source",
+    others: "$19.99/mo subscription or paid tier nags",
+    ophiraHighlight: true
+  }
+];
+---
+
+<section class="comparison-section" id="comparison">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge" style="margin-bottom: 0.75rem;">Clear Advantage</span>
+      <h2>Why Choose Ophira PDF?</h2>
+      <p>Compare Ophira PDF against standard bloated enterprise PDF readers.</p>
+    </div>
+
+    <div class="card table-card">
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 38%;">Feature</th>
+              <th class="col-ophira" style="width: 32%;">
+                <span class="ophira-badge">Ophira PDF</span>
+              </th>
+              <th style="width: 30%;">Legacy PDF Readers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr>
+                <td class="feature-col">{row.feature}</td>
+                <td class="col-ophira">
+                  <div class="ophira-check">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{row.ophira}</span>
+                  </div>
+                </td>
+                <td class="col-others">
+                  <div class="others-cell">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    <span>{row.others}</span>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .comparison-section {
+    padding: 5rem 0;
+  }
+
+  .table-card {
+    padding: 1.5rem;
+    overflow: hidden;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .comparison-table th {
+    padding: 1.25rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--border-subtle);
+  }
+
+  .comparison-table td {
+    padding: 1.15rem 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+  }
+
+  .comparison-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .feature-col {
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .col-ophira {
+    background-color: var(--surface);
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .ophira-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px var(--brand-glow);
+  }
+
+  .ophira-check {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-main);
+  }
+
+  .ophira-check svg {
+    color: #10B981;
+    flex-shrink: 0;
+  }
+
+  .others-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .others-cell svg {
+    color: #EF4444;
+    flex-shrink: 0;
+  }
+</style>

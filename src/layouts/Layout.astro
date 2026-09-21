@@ -1,0 +1,49 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Ophira PDF — Modern, Fast & Distraction-Free Desktop PDF Reader",
+  description = "Lightning-fast desktop PDF viewer and editor with instant auto-save, custom themes (Indigo, Emerald, Navy, Light), recent file history, and 100% offline privacy."
+} = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<!doctype html>
+<html lang="en" data-theme="indigo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#3A34C4" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${baseUrl}/icon.png`} />
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}/favicon.svg`} />
+    <link rel="alternate icon" type="image/x-icon" href={`${baseUrl}/favicon.ico`} />
+    <link rel="apple-touch-icon" href={`${baseUrl}/icon.png`} />
+
+    <!-- Prevent Theme Flash -->
+    <script is:inline>
+      (function () {
+        try {
+          const theme = localStorage.getItem('ophira-theme') || 'indigo';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="ambient-glow" aria-hidden="true"></div>
+    <slot />
+  </body>
+</html>

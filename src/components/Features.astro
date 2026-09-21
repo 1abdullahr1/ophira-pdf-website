@@ -1,0 +1,103 @@
+---
+const features = [
+  {
+    icon: "💾",
+    title: "Direct-to-Disk Auto-Save",
+    description: "Every highlight, note, stamp, and signature is automatically persisted directly back into your original PDF file. Includes a live status indicator and manual Save button."
+  },
+  {
+    icon: "🚪",
+    title: "Zero-Prompt Instant Close",
+    description: "Tired of software stopping you with 'Do you want to save your work?' Every time you close a tab or exit Ophira PDF, it flushes changes and closes in milliseconds."
+  },
+  {
+    icon: "🎨",
+    title: "4 Curated Reading Themes",
+    description: "Switch seamlessly between Indigo, Emerald, Navy, and Light color palettes designed for visual clarity, reduced eye strain, and distraction-free document focus."
+  },
+  {
+    icon: "⌂",
+    title: "Home Tab & Recent Documents",
+    description: "Quickly access your document history from an integrated Home screen. Drag-and-drop PDFs directly into the app for immediate rendering."
+  },
+  {
+    icon: "🚀",
+    title: "Standalone Portable & Installer",
+    description: "Choose between a traditional Windows Setup installer or a single standalone Portable .exe that runs immediately without admin rights or background services."
+  },
+  {
+    icon: "🛡️",
+    title: "100% Offline Privacy",
+    description: "Zero telemetry, zero cloud tracking, zero accounts, and zero monthly fees. Your sensitive documents, financial sheets, and legal contracts never leave your PC."
+  }
+];
+---
+
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge" style="margin-bottom: 0.75rem;">Engineered for Productivity</span>
+      <h2>Built for Speed. Tuned for Focus.</h2>
+      <p>Every feature in Ophira PDF was crafted to eliminate friction and keep you in your reading or editing flow.</p>
+    </div>
+
+    <div class="features-grid">
+      {features.map((item) => (
+        <div class="card feature-card">
+          <div class="feature-icon-wrapper">
+            <span class="feature-icon">{item.icon}</span>
+          </div>
+          <h3 class="feature-title">{item.title}</h3>
+          <p class="feature-desc">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--shade);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+
+  .feature-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.65rem;
+    font-weight: 700;
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+</style>
